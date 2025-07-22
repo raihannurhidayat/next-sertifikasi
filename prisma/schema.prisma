@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  // provider = "mysql"
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// membuat schema untuk kebutuhan program dalam sistem berupa tabel mobils
+model Mobil {
+  id    String @id @default(cuid())
+  name  String
+  price Int
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  BiayaRental BiayaRental[]
+
+  @@map("mobils")
+}
+
+// membuat schema untuk kebutuhan program dalam sistem berupa tabel programs
+model Program {
+  id          String        @id @default(cuid())
+  name        String
+  day         Int
+  discount    Int
+  BiayaRental BiayaRental[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("programs")
+}
+
+// membuat schema untuk kebutuhan program dalam sistem berupa tabel biaya_rentals
+model BiayaRental {
+  id          String  @id @default(cuid())
+  tenantName  String
+  mobilId     String
+  programId   String
+  price       Int?
+  dayDuration Int?
+  totalPrice  Int?
+
+  extraHours  Int?
+  imgUrl     String?
+
+  program Program @relation(fields: [programId], references: [id])
+  mobil   Mobil   @relation(fields: [mobilId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("biaya_rentals")
+}
