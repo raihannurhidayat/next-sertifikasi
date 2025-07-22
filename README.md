@@ -1,4 +1,15 @@
-# Creator: Muhamad Raihan Nurhdiayat
+# Rental Mobil
+
+## Creator: Muhamad Raihan Nurhdiayat
+Selamat datang di RentCar! Ini adalah sebuah platform penyewaan mobil berbasis web yang dibangun menggunakan teknologi modern untuk memberikan pengalaman pengguna yang cepat, responsif, dan intuitif. Proyek ini bertujuan untuk memudahkan pengguna jasa rental mobil sewaan dalam menagement data.
+
+Aplikasi ini dikembangkan dengan **Next.js**, **React**, dan **Tailwind CSS** untuk memastikan performa tinggi dan tampilan yang menarik di semua perangkat.
+
+
+## Install Depedency
+```
+npm install
+```
 
 ## Getting Started
 
