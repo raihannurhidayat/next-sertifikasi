@@ -66,6 +66,7 @@ const FormCreateRental = (props: FormCreateRentalProps) => {
       router.push("/penyewaan"); // Navigasi ke halaman daftar penyewaan
     } catch (error: any) {
       console.log(error.message); // Tampilkan error di console
+      alert("Gagal membuat data: Data Tidak Lengkap" ); // Tampilkan notifikasi error
     }
   };
 
