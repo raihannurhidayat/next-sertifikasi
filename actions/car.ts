@@ -66,8 +66,8 @@ export const createRental = async (data: FormDataRentalCar) => {
 
     // Refresh ulang halaman /penyewaan agar data terbaru muncul
     revalidatePath("/penyewaan");
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    console.log(error.message);
     throw new Error("Terjadi kesalahan pada server");
   }
 };
